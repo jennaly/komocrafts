@@ -58,3 +58,13 @@ export type ProductsByCategoryData = {
     };
   };
 };
+
+export type ProductCategoriesData = {
+  collections: {
+    nodes: {
+      handle: string;
+      image: ShopifyImage;
+      descriptionHtml: string;
+    };
+  };
+};
