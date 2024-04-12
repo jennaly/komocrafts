@@ -224,3 +224,31 @@ export const getProductsByCategory = async (
     throw new Error(`${error}`);
   }
 };
+
+export const getProductCategories = async () => {
+  const getProductCategoriesQuery = gql`
+    query allProductCategories {
+      collections(first: 250, query: "NOT title:Workshops") {
+        nodes {
+          id
+          title
+          handle
+          descriptionHtml
+          image {
+            id
+            url
+            width
+            height
+            altText
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    return await graphQLClient.request(getProductCategoriesQuery);
+  } catch (error) {
+    throw new Error(`${error}`);
+  }
+};
