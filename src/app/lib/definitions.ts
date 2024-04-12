@@ -21,7 +21,7 @@ export type ShopifyProductData = {
   title: string;
   handle: string;
   id: string;
-  description: string;
+  descriptionHtml: string;
   tags: string[];
   featuredImage: ShopifyImage;
   images: {
