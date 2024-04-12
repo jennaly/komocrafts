@@ -50,6 +50,7 @@ export type ProductsData = {
 
 export type ProductsByCategoryData = {
   collection: {
+    title: string;
     handle: string;
     products: {
       edges: {
@@ -59,12 +60,15 @@ export type ProductsByCategoryData = {
   };
 };
 
+export type SingleCategoryData = {
+  title: string;
+  handle: string;
+  image: ShopifyImage;
+  descriptionHtml: string;
+};
+
 export type ProductCategoriesData = {
   collections: {
-    nodes: {
-      handle: string;
-      image: ShopifyImage;
-      descriptionHtml: string;
-    };
+    nodes: SingleCategoryData[];
   };
 };
