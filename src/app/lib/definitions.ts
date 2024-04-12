@@ -48,7 +48,7 @@ export type ProductsData = {
   };
 };
 
-export type CategoryData = {
+export type ProductsByCategoryData = {
   collection: {
     handle: string;
     products: {
