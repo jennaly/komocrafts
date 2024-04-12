@@ -5,7 +5,7 @@ import { ProductsData, ShopifyProductData, CategoryData } from "./definitions";
 export const getAllPhysicalProducts = async (): Promise<ProductsData> => {
   const getAllPhysicalProductsQuery = gql`
     query PhysicalProductsQuery {
-      products(first: 250, query: "tag_not:Workshops") {
+      products(first: 250, query: "title: NOT Workshop") {
         nodes {
           title
           handle
