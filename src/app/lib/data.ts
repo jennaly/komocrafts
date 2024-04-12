@@ -11,7 +11,7 @@ export const getAllPhysicalProducts = async (): Promise<ProductsData> => {
           handle
           id
           tags
-          description
+          descriptionHtml
           featuredImage {
             id
             url
@@ -86,7 +86,7 @@ export const getSingleProduct = async (
         title
         handle
         id
-        description
+        descriptionHtml
         tags
         featuredImage {
           id
@@ -169,7 +169,7 @@ export const getProductsByCategory = async (
               handle
               id
               tags
-              description
+              descriptionHtml
               featuredImage {
                 id
                 url
