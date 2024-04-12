@@ -1,6 +1,12 @@
 import { gql } from "graphql-request";
 import { graphQLClient } from "./client";
-import { ProductsData, ShopifyProductData, CategoryData } from "./definitions";
+import {
+  ProductsData,
+  ShopifyProductData,
+  ProductCategoriesData,
+  SingleCategoryData,
+  ProductsByCategoryData,
+} from "./definitions";
 
 export const getAllPhysicalProducts = async (): Promise<ProductsData> => {
   const getAllPhysicalProductsQuery = gql`
@@ -157,10 +163,11 @@ export const getSingleProduct = async (
 
 export const getProductsByCategory = async (
   categoryHandle: string
-): Promise<CategoryData> => {
+): Promise<ProductsByCategoryData> => {
   const getProductsByCategoryQuery = gql`
     query ProductsByCategory($handle: String) {
       collection(handle: $handle) {
+        title
         handle
         products(first: 250) {
           edges {
@@ -225,29 +232,55 @@ export const getProductsByCategory = async (
   }
 };
 
-export const getProductCategories = async () => {
-  const getProductCategoriesQuery = gql`
-    query allProductCategories {
-      collections(first: 250, query: "NOT title:Workshops") {
-        nodes {
-          id
-          title
-          handle
-          descriptionHtml
-          image {
+export const getProductCategories =
+  async (): Promise<ProductCategoriesData> => {
+    const getProductCategoriesQuery = gql`
+      query allProductCategories {
+        collections(first: 250, query: "NOT title:Workshops") {
+          nodes {
             id
-            url
-            width
-            height
-            altText
+            title
+            handle
+            descriptionHtml
+            image {
+              id
+              url
+              width
+              height
+              altText
+            }
           }
         }
+      }
+    `;
+
+    try {
+      return await graphQLClient.request(getProductCategoriesQuery);
+    } catch (error) {
+      throw new Error(`${error}`);
+    }
+  };
+
+export const getSingleCategory = async (
+  handle: string
+): Promise<SingleCategoryData> => {
+  const getSingleCategoryQuery = gql`
+    query singleCategory($handle: String!) {
+      collection(handle: $handle) {
+        title
+        handle
+        image
+        descriptionHtml
       }
     }
   `;
 
+  const variables = {
+    handle: handle,
+  };
+
   try {
-    return await graphQLClient.request(getProductCategoriesQuery);
+    return await graphQLClient.request(getSingleCategoryQuery, variables);
   } catch (error) {
     throw new Error(`${error}`);
   }
