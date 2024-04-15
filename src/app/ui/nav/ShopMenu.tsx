@@ -6,13 +6,13 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import React, { useState } from "react";
 import { gilda } from "@/app/ui/fonts";
 
-type SidebarMenuProp = {
+type ShopMenuProp = {
   id?: string;
   title: string;
   handle: string;
 }[];
 
-const SidebarMenu = ({ sidebarLinks }: { sidebarLinks: SidebarMenuProp }) => {
+const ShopMenu = ({ shopLinks }: { shopLinks: ShopMenuProp }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -72,7 +72,7 @@ const SidebarMenu = ({ sidebarLinks }: { sidebarLinks: SidebarMenuProp }) => {
               exit="closed"
               variants={sideVariants}
             >
-              {sidebarLinks!.map(({ id, title, handle }) => (
+              {shopLinks!.map(({ id, title, handle }) => (
                 <motion.a
                   key={id}
                   href={`/shop/category/${handle}`}
@@ -90,4 +90,4 @@ const SidebarMenu = ({ sidebarLinks }: { sidebarLinks: SidebarMenuProp }) => {
   );
 };
 
-export default SidebarMenu;
+export default ShopMenu;
