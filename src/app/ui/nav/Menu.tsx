@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 
 const Menu = async () => {
   const links = await Links();
-  const sidebarLinks = links[0].subLinks!;
+  const shopLinks = links[0].subLinks!;
   const mainLinks = links.slice(1);
 
   return (
