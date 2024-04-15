@@ -61,6 +61,7 @@ export type ProductsByCategoryData = {
 };
 
 export type SingleCategoryData = {
+  id: string;
   title: string;
   handle: string;
   image: ShopifyImage;
