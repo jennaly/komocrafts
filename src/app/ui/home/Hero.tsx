@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { gilda } from "./fonts";
-import CTA from "./CTA";
+import { gilda } from "../fonts";
+import CTA from "../CTA";
 import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 
