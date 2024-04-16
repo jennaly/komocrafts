@@ -83,7 +83,7 @@ const MobileMenu = ({ links }: { links: MobileMenuProps }) => {
               variants={sideVariants}
             >
               {links!.map((link) => (
-                <motion.div variants={itemVariants}>
+                <motion.div variants={itemVariants} key={link.handle}>
                   {link.handle && (
                     <Link href={`/${link.handle}`}>
                       <h2

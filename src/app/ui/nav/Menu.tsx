@@ -17,7 +17,11 @@ const Menu = async () => {
       <div className="hidden lg:flex justify-between">
         <ShopMenu shopLinks={shopLinks} />
         {mainLinks.map((link) => (
-          <Link href={`/${link.handle}`} className="hover:text-gray-400">
+          <Link
+            href={`/${link.handle}`}
+            className="hover:text-gray-400"
+            key={link.handle}
+          >
             {link.title}
           </Link>
         ))}
