@@ -236,7 +236,10 @@ export const getProductCategories =
   async (): Promise<ProductCategoriesData> => {
     const getProductCategoriesQuery = gql`
       query allProductCategories {
-        collections(first: 250, query: "NOT title:Workshops") {
+        collections(
+          first: 250
+          query: "NOT title:Workshops AND NOT title:Featured"
+        ) {
           nodes {
             id
             title
