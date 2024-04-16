@@ -16,7 +16,7 @@ type SubLink = {
 
 type MobileMenuProps = {
   title: string;
-  handle?: string;
+  handle: string;
   subLinks?: SubLink[];
 }[];
 
@@ -84,7 +84,7 @@ const MobileMenu = ({ links }: { links: MobileMenuProps }) => {
             >
               {links!.map((link) => (
                 <motion.div variants={itemVariants} key={link.handle}>
-                  {link.handle && (
+                  {!link.subLinks && (
                     <Link href={`/${link.handle}`}>
                       <h2
                         className={`${gilda.className} border-b-2 pb-2 text-2xl `}
@@ -94,7 +94,7 @@ const MobileMenu = ({ links }: { links: MobileMenuProps }) => {
                     </Link>
                   )}
 
-                  {!link.handle && <MobileSubMenu link={link} />}
+                  {link.subLinks && <MobileSubMenu link={link} />}
                 </motion.div>
               ))}
             </motion.div>

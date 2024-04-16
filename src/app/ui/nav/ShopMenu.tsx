@@ -75,7 +75,7 @@ const ShopMenu = ({ shopLinks }: { shopLinks: ShopMenuProp }) => {
               {shopLinks!.map(({ id, title, handle }) => (
                 <motion.a
                   key={id}
-                  href={`/shop/category/${handle}`}
+                  href={`shop/category/${handle}`}
                   whileHover={{ scale: 1.1 }}
                   variants={itemVariants}
                 >

@@ -11,6 +11,7 @@ type SubLink = {
 };
 type MobileSubMenuProps = {
   title: string;
+  handle: string;
   subLinks?: SubLink[];
 };
 const MobileSubMenu = ({ link }: { link: MobileSubMenuProps }) => {
@@ -68,7 +69,7 @@ const MobileSubMenu = ({ link }: { link: MobileSubMenuProps }) => {
                 key={subLink.id}
                 className="hover:underline"
               >
-                <Link href={`/${subLink.handle}`}>
+                <Link href={`${link.handle}${subLink.handle}`}>
                   <h3>{subLink.title}</h3>
                 </Link>
               </motion.div>
