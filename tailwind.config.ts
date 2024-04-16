@@ -15,6 +15,8 @@ const config: Config = {
       },
       colors: {
         "bg-nav": "#F8F3F2",
+        "komo-beaver": "#937C6A",
+        "komo-coffee": "#674E3A",
       },
     },
   },
