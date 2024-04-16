@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 
 import React, { useState } from "react";
@@ -43,13 +43,16 @@ const ShopMenu = ({ shopLinks }: { shopLinks: ShopMenuProp }) => {
   return (
     <nav>
       <div>
-        <button onClick={handleOpen} className="flex gap-1 pl-4">
+        <button
+          onClick={handleOpen}
+          className="flex gap-1 pl-4 hover:text-komo-coffee"
+        >
           {open ? (
             <IoCloseOutline size={25} className="hover:cursor-pointer ml-4" />
           ) : (
             <IoMenuOutline size={25} className="hover:cursor-pointer ml-4" />
           )}
-          <span className="hover:text-gray-400">Shop</span>
+          <span className="hover:text-komo-coffee">Shop</span>
         </button>
       </div>
       <AnimatePresence>
@@ -75,7 +78,7 @@ const ShopMenu = ({ shopLinks }: { shopLinks: ShopMenuProp }) => {
               {shopLinks!.map(({ id, title, handle }) => (
                 <motion.a
                   key={id}
-                  href={`shop/category/${handle}`}
+                  href={`/shop/category/${handle}`}
                   whileHover={{ scale: 1.1 }}
                   variants={itemVariants}
                 >
