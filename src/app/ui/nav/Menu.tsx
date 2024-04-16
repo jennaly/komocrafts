@@ -12,14 +12,14 @@ const Menu = async () => {
 
   return (
     <nav
-      className={`grid grid-cols-3 py-4 bg-bg-nav fixed w-full ${monstserrat.className}`}
+      className={`grid grid-cols-3 py-4 bg-bg-nav fixed z-40 w-full ${monstserrat.className}`}
     >
       <div className="hidden lg:flex justify-between">
         <ShopMenu shopLinks={shopLinks} />
         {mainLinks.map((link) => (
           <Link
             href={`/${link.handle}`}
-            className="hover:text-gray-400"
+            className="hover:text-komo-coffee"
             key={link.handle}
           >
             {link.title}
