@@ -21,7 +21,7 @@ const DrawOutlineButton = ({
       className="group relative px-4 py-2 transition-colors duration-[400ms] hover:text-komo-coffee"
     >
       <span
-        className={`${monstserrat.className} text-lg flex gap-4 items-center`}
+        className={`${monstserrat.className} text-lg flex gap-4 items-center font-medium`}
       >
         {children}
       </span>
