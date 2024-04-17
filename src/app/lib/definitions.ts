@@ -27,7 +27,7 @@ export type ShopifyProductData = {
   images: {
     edges: {
       node: ShopifyImage;
-    };
+    }[];
   };
   variants?: {
     edges: {
