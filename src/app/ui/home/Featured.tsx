@@ -38,7 +38,7 @@ const Featured = ({ data }: { data: ProductsByCategoryData }) => {
       whileInView="onScreen"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariants}
-      className="container mx-auto px-4 py-4 my-20 flex flex-col justify-around lg:justify-center gap-4"
+      className="container bg-komo-bg mx-auto px-4 py-4 my-20 flex flex-col justify-around lg:justify-center gap-4"
     >
       <motion.div
         variants={itemVariants}

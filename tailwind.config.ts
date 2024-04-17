@@ -17,7 +17,7 @@ const config: Config = {
         "128": "32rem",
       },
       colors: {
-        "bg-nav": "#F8F3F2",
+        "komo-bg": "#F8F3F2",
         "komo-beaver": "#937C6A",
         "komo-coffee": "#674E3A",
       },

@@ -12,7 +12,7 @@ const Menu = async () => {
 
   return (
     <nav
-      className={`grid grid-cols-3 py-4 bg-bg-nav fixed z-40 w-full ${monstserrat.className}`}
+      className={`grid grid-cols-3 py-4 bg-komo-bg fixed z-40 w-full ${monstserrat.className}`}
     >
       <div className="hidden lg:flex justify-between">
         <ShopMenu shopLinks={shopLinks} />
