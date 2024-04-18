@@ -40,6 +40,8 @@ const ProductCard = ({ product }: { product: ShopifyProductData }) => {
           onMouseLeave={() => setDisplayedImage(featuredImage)}
           className="h-80 md:h-96 lg:h-128 lg:overflow-hidden object-cover"
         />
+
+        <div className="absolute top-2 left-2 flex gap-2">
         {compareAtPriceRange.maxVariantPrice.amount !== "0.0" && (
           <span className="absolute top-2 left-2 bg-white p-1 text-xs">
             ON SALE!
