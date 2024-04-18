@@ -272,7 +272,13 @@ export const getSingleCategory = async (
       collection(handle: $handle) {
         title
         handle
-        image
+        image {
+          id
+          url
+          width
+          height
+          altText
+        }
         descriptionHtml
       }
     }
