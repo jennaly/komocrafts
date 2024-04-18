@@ -40,28 +40,45 @@ const Featured = ({ data }: { data: ProductsByCategoryData }) => {
       variants={sectionVariants}
       className="container bg-komo-bg mx-auto px-4 py-24 flex flex-col justify-around lg:justify-center gap-4"
     >
-      <motion.div
-        variants={itemVariants}
-        className="flex w-full justify-between items-center lg:row-start-3"
-      >
-        <h3 className={`${gilda.className} text-2xl lg:text-3xl `}>
-          Explore our newest arrivals
-        </h3>
-
-        <CTA link={"/all"}>Shop All</CTA>
-      </motion.div>
-
-      <motion.div
-        variants={itemVariants}
-        className="w-full flex overflow-x-scroll lg:overflow-hidden mt-10"
-      >
-        <div className="flex flex-nowrap w-full gap-10 lg:gap-6 items-stretch">
-          {data.collection.products.edges.map(({ node }) => (
-            <ProductCard product={node} key={node.id} />
-          ))}
-        </div>
-      </motion.div>
+      <Copy />
+      <Products data={data} />
     </motion.section>
+  );
+};
+
+const Copy = () => {
+  return (
+    <motion.div
+      variants={itemVariants}
+      className="flex w-full justify-between items-center lg:row-start-3"
+    >
+      <div className="w-2/3 flex flex-col gap-2">
+        <h3 className="text-lg">Explore our newest arrivals</h3>
+        <p className={`${gilda.className} text-2xl`}>
+          Creating pieces that resonate with enduring quality, elegant
+          simplicity, and sustainable innovation.
+        </p>
+      </div>
+
+      <div className="w-1/3 flex justify-end">
+        <CTA link={"/all"}>Shop All</CTA>
+      </div>
+    </motion.div>
+  );
+};
+
+const Products = ({ data }: { data: ProductsByCategoryData }) => {
+  return (
+    <motion.div
+      variants={itemVariants}
+      className="w-full flex overflow-x-scroll lg:overflow-hidden mt-10"
+    >
+      <div className="flex flex-nowrap w-full gap-10 lg:gap-6 items-stretch">
+        {data.collection.products.edges.map(({ node }) => (
+          <ProductCard product={node} key={node.id} />
+        ))}
+      </div>
+    </motion.div>
   );
 };
 
