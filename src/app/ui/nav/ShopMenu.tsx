@@ -66,7 +66,7 @@ const ShopMenu = ({ shopLinks }: { shopLinks: ShopMenuProp }) => {
               width: 0,
               transition: { delay: 0.8, duration: 0.5 },
             }}
-            className="h-lvh bg-bg-nav fixed mt-4"
+            className="h-lvh bg-komo-bg fixed mt-4"
           >
             <motion.div
               className={`container flex flex-col mt-8 text-2xl ${gilda.className} gap-4 ml-10`}
