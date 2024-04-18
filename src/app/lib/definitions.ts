@@ -61,15 +61,17 @@ export type ProductsByCategoryData = {
 };
 
 export type SingleCategoryData = {
-  id: string;
-  title: string;
-  handle: string;
-  image: ShopifyImage;
-  descriptionHtml: string;
+  collection: {
+    id: string;
+    title: string;
+    handle: string;
+    image: ShopifyImage;
+    descriptionHtml: string;
+  };
 };
 
 export type ProductCategoriesData = {
   collections: {
-    nodes: SingleCategoryData[];
+    nodes: SingleCategoryData["collection"][];
   };
 };
