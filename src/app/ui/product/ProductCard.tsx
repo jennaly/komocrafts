@@ -15,6 +15,7 @@ const ProductCard = ({ product }: { product: ShopifyProductData }) => {
     images,
     compareAtPriceRange,
     priceRange,
+    tags,
   } = product;
 
   const getAltFeaturedImage = () => {
@@ -42,11 +43,14 @@ const ProductCard = ({ product }: { product: ShopifyProductData }) => {
         />
 
         <div className="absolute top-2 left-2 flex gap-2">
-        {compareAtPriceRange.maxVariantPrice.amount !== "0.0" && (
-          <span className="absolute top-2 left-2 bg-white p-1 text-xs">
-            ON SALE!
-          </span>
-        )}
+          {compareAtPriceRange.maxVariantPrice.amount !== "0.0" && (
+            <span className="bg-white py-1 px-2 text-xs">ON SALE!</span>
+          )}
+
+          {tags.includes("bestseller") && (
+            <span className="bg-komo-latte py-1 px-2 text-xs">BEST SELLER</span>
+          )}
+        </div>
 
         <div className="flex flex-col">
           <h4 className={`${gilda.className} text-2xl mt-2 hover:underline`}>
