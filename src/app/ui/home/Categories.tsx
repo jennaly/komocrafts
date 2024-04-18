@@ -1,8 +1,26 @@
+"use client";
+
 import React from "react";
 import { gilda } from "../fonts";
 import { SingleCategoryData } from "@/app/lib/definitions";
 import clsx from "clsx";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const sectionVariants = {
+  offScreen: {
+    y: 50,
+    opacity: 0,
+  },
+  onScreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      duration: 0.3,
+    },
+  },
+};
 
 const Categories = ({
   coasters,
@@ -16,12 +34,18 @@ const Categories = ({
   supplies: SingleCategoryData;
 }) => {
   return (
-    <section className="h-screen grid grid-cols-12 grid-rows-12">
+    <motion.section
+      initial="offScreen"
+      whileInView="onScreen"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={sectionVariants}
+      className="h-screen grid grid-cols-12 grid-rows-12"
+    >
       <Coasters data={coasters} />
       <WallHangings data={wallHangings} />
       <Keychains data={keychains} />
       <Supplies data={supplies} />
-    </section>
+    </motion.section>
   );
 };
 
