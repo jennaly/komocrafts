@@ -53,11 +53,9 @@ const Copy = () => {
       className="flex w-full justify-between items-center lg:row-start-3"
     >
       <div className="w-2/3 flex flex-col gap-2">
-        <h2 className="text-lg">Explore our newest arrivals</h2>
-        <p className={`${gilda.className} text-2xl`}>
-          Creating pieces that resonate with enduring quality, elegant
-          simplicity, and sustainable innovation.
-        </p>
+        <h2 className={`${gilda.className} text-2xl lg:text-3xl`}>
+          Popular picks
+        </h2>
       </div>
 
       <div className="w-1/3 flex justify-end">
