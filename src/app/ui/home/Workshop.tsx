@@ -31,9 +31,9 @@ const Workshop = () => {
       whileInView="onScreen"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariants}
-      className="2xl:container flex flex-col lg:flex-row justify-between mx-auto py-20 items-stretch"
+      className="2xl:container flex flex-col lg:flex-row justify-between mx-auto 2xl:py-20 items-stretch"
     >
-      <div className="flex justify-center flex-col mx-auto px-4 lg:px-8 py-20 lg:w-1/2 bg-komo-latte">
+      <div className="flex justify-center flex-col mx-auto px-4 lg:px-20 py-20 lg:w-1/2 bg-komo-latte">
         <h2
           className={`${gilda.className} text-center break-keep text-4xl lg:text-5xl 2xl:text-6xl leading-normal`}
         >
