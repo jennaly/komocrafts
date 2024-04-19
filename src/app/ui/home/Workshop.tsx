@@ -31,9 +31,9 @@ const Workshop = () => {
       whileInView="onScreen"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariants}
-      className="flex flex-col lg:flex-row justify-between"
+      className="2xl:container flex flex-col lg:flex-row justify-between mx-auto py-20 items-stretch"
     >
-      <div className="my-auto mx-auto px-4 lg:px-8 py-20 md:w-1/2 xl:w-1/3">
+      <div className="flex justify-center flex-col mx-auto px-4 lg:px-8 py-20 lg:w-1/2 bg-komo-latte">
         <h2
           className={`${gilda.className} text-center break-keep text-4xl lg:text-5xl 2xl:text-6xl leading-normal`}
         >
@@ -55,7 +55,7 @@ const Workshop = () => {
         width="1084"
         height="1335"
         alt="Workshop station with unraveled yarn"
-        className="h-96 lg:h-screen lg:w-1/2 object-cover overflow-hidden"
+        className="h-96 lg:h-auto lg:w-1/2 object-cover overflow-hidden"
       />
     </motion.section>
   );
