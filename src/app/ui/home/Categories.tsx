@@ -39,7 +39,7 @@ const Categories = ({
       whileInView="onScreen"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariants}
-      className="h-screen grid grid-cols-12 grid-rows-12"
+      className="h-144 2xl:h-256 grid grid-cols-12 grid-rows-12"
     >
       <Coasters data={coasters} />
       <WallHangings data={wallHangings} />
@@ -51,14 +51,14 @@ const Categories = ({
 
 const CategoryTitleStyle = `${gilda.className} text-3xl  col-span-full lg:my-auto`;
 const CategoryTextStyle =
-  "grid grid-cols-5 px-4 h-full bg-shop-overlay/50 hover:bg-shop-overlay/60 text-white";
+  "grid grid-cols-5 px-4 h-full bg-shop-overlay/50 hover:bg-shop-overlay/60 text-white lg:pl-10";
 
 const Coasters = ({ data }: { data: SingleCategoryData }) => {
   const { title, handle, image } = data.collection;
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
-      className={`w-full row-span-4 col-span-full lg:row-start-3 lg:col-span-6 lg:row-span-10 z-10 bg-bottom bg-cover`}
+      className={`w-full row-span-4 col-span-full lg:col-span-6 lg:row-span-full z-10 bg-bottom bg-cover`}
     >
       <Link href={`/shop/category/${handle}`}>
         <div className={`${CategoryTextStyle} grid-rows-12`}>
@@ -78,7 +78,7 @@ const WallHangings = ({ data }: { data: SingleCategoryData }) => {
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
-      className="w-full col-span-full row-span-4 lg:row-start-3 lg:col-span-6 lg:row-span-5 z-10 bg-cover bg-bottom bg-no-repeat"
+      className="w-full col-span-full row-span-4 lg:row-start-1 lg:col-span-6 lg:row-span-6 z-10 bg-cover bg-bottom bg-no-repeat"
     >
       <Link href={`/shop/category/${handle}`}>
         <div className={`${CategoryTextStyle} grid-rows-6`}>
@@ -96,7 +96,7 @@ const Keychains = ({ data }: { data: SingleCategoryData }) => {
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
-      className="lg:row-start-8 lg:col-span-3 col-span-6 row-span-4 lg:row-span-5 z-10 bg-cover bg-center"
+      className="lg:row-start-7 lg:col-span-3 col-span-6 row-span-4 lg:row-span-6 z-10 bg-cover bg-center"
     >
       <Link href={`/shop/category/${handle}`}>
         <div className={`${CategoryTextStyle} grid-rows-6`}>
@@ -114,7 +114,7 @@ const Supplies = ({ data }: { data: SingleCategoryData }) => {
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
-      className="lg:row-start-8 lg:col-span-3 col-span-6 row-span-4 lg:row-span-5 z-10 bg-cover bg-center"
+      className="lg:row-start-7 lg:col-span-3 col-span-6 row-span-4 lg:row-span-6 z-10 bg-cover bg-center"
     >
       <Link href={`/shop/category/${handle}`}>
         <div className={`${CategoryTextStyle} grid-rows-6`}>
@@ -131,12 +131,12 @@ const CategoryDetails = ({ className }: { className: string }) => {
   return (
     <div
       className={clsx(
-        "flex justify-between items-start col-span-12",
+        "flex justify-between items-start col-span-12 lg:text-lg",
         className
       )}
     >
       <span className="hidden lg:inline-block text-sm">From $16.00</span>
-      <button className="underline underline-offset-4 lg:text-base text-sm">
+      <button className="underline underline-offset-4 text-sm">
         See products
       </button>
     </div>
