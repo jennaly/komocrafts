@@ -51,7 +51,7 @@ const Categories = ({
 
 const CategoryTitleStyle = `${gilda.className} text-3xl  col-span-full lg:my-auto`;
 const CategoryTextStyle =
-  "grid grid-cols-5 px-4 h-full bg-shop-overlay/50 hover:bg-shop-overlay/60 text-white lg:pl-10";
+  "grid grid-cols-5 px-4 h-full bg-shop-overlay/50 hover:bg-shop-overlay/60 transition ease-in-out duration-300 text-white lg:pl-10";
 
 const Coasters = ({ data }: { data: SingleCategoryData }) => {
   const { title, handle, image } = data.collection;
