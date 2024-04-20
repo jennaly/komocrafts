@@ -73,7 +73,7 @@ const MobileMenu = ({ links }: { links: MobileMenuProps }) => {
               width: "100vw",
               transition: { delay: 0.5, duration: 0.5 },
             }}
-            className="h-lvh bg-bg-nav fixed mt-4"
+            className="h-lvh bg-komo-bg fixed mt-4"
           >
             <motion.div
               className={`container flex flex-col mt-8 gap-8 ml-10`}
