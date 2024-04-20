@@ -7,7 +7,10 @@ import { formatPrice } from "@/app/lib/utils";
 import Link from "next/link";
 import { gilda } from "../fonts";
 
-const ProductCard = ({ product }: { product: ShopifyProductData }) => {
+interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  product: ShopifyProductData;
+}
+const ProductCard = ({ product, className }: ProductCardProps) => {
   const {
     handle,
     title,
