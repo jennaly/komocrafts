@@ -30,7 +30,7 @@ const ProductCard = ({ product }: { product: ShopifyProductData }) => {
   const [displayedImage, setDisplayedImage] = useState(featuredImage);
 
   return (
-    <div className="relative shrink-0 w-full md:w-1/2 lg:shrink">
+    <div className={`${className}`}>
       <Link href={`/product/${handle}`}>
         <Image
           src={displayedImage.url}
