@@ -1,5 +1,5 @@
 import { ProductsByCategoryData } from "@/app/lib/definitions";
-import { gilda } from "@/app/ui/fonts";
+import { gilda, monstserrat } from "@/app/ui/fonts";
 import Link from "next/link";
 
 type CategoryLink = {
@@ -26,7 +26,7 @@ const Header = ({ data, categoryLinks }: HeaderProps) => {
             categoryLinks.map((link) => (
               <Link
                 href={`/shop/${link.handle}`}
-                className="shrink-0 w-fit px-4 py-2 rounded-full border border-komo-beaver hover:bg-komo-bone delay-200 duration-200"
+                className={`${monstserrat.className} shrink-0 w-fit px-4 py-2 rounded-full border border-komo-beaver hover:bg-komo-bone delay-200 duration-200`}
                 key={link.id ? link.id : link.handle}
               >
                 {link.title}
