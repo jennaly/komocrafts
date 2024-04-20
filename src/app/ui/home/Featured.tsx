@@ -73,7 +73,11 @@ const Products = ({ data }: { data: ProductsByCategoryData }) => {
     >
       <div className="flex flex-nowrap w-full gap-10 lg:gap-6 items-stretch">
         {data.collection.products.edges.map(({ node }) => (
-          <ProductCard product={node} key={node.id} />
+          <ProductCard
+            product={node}
+            key={node.id}
+            className="relative shrink-0 w-full md:w-1/2 lg:shrink"
+          />
         ))}
       </div>
     </motion.div>
