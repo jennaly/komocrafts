@@ -15,7 +15,7 @@ type CategoryLink = {
 type ProductCardProps = {
   data: ProductsByCategoryData;
   categoryLinks: CategoryLink[];
-  products: { node: ShopifyProductData }[];
+  products: ShopifyProductData[];
 };
 
 const ContentWrapper = ({
