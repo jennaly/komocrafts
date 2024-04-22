@@ -13,7 +13,7 @@ const Home = async () => {
   const supplies = await getSingleCategory("supplies");
 
   return (
-  return (
+    <main className="bg-komo-bg">
       <Hero />
       <Featured data={featuredCollection} />
       {/* <HomepageCollage /> */}
