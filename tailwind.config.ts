@@ -24,6 +24,7 @@ const config: Config = {
         "komo-beaver": "#937C6A",
         "komo-coffee": "#674E3A",
         "komo-latte": "#ECE1D7",
+        "komo-bone": "#E2D5C1",
         "shop-overlay": "#201916",
       },
     },
