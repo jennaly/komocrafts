@@ -7,6 +7,11 @@ export const formatPrice = (price: string) =>
 
 export const formatCategoryTitle = (title: string) =>
   title
-    .split("")
-    .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
-    .join("");
+    .split("-")
+    .map((word) =>
+      word
+        .split("")
+        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+        .join("")
+    )
+    .join(" ");
