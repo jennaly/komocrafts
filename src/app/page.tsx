@@ -12,7 +12,6 @@ const Home = async () => {
   const keychains = await getSingleCategory("keychains");
   const supplies = await getSingleCategory("supplies");
 
-  console.log(coasters.collection.image.url);
   return (
   return (
       <Hero />
