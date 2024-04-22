@@ -22,6 +22,7 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
   } = product;
 
   const getAltFeaturedImage = () => {
+    if (images.edges.length <= 1) return featuredImage;
     for (let i = 0; i < images.edges.length; i++) {
       if (images.edges[i].node.id !== featuredImage.id) {
         return images.edges[i].node;
