@@ -1,6 +1,7 @@
 import { ProductsByCategoryData } from "@/app/lib/definitions";
 import { formatCategoryTitle } from "@/app/lib/utils";
 import { gilda, monstserrat } from "@/app/ui/fonts";
+import { motion } from "framer-motion";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -13,9 +14,10 @@ type HeaderProps = {
   categoryTitle: string;
   categoryLinks: CategoryLink[];
 };
+
 const Header = ({ categoryTitle, categoryLinks }: HeaderProps) => {
   return (
-    <section className="">
+    <motion.section>
       <h1
         className={`${gilda.className} text-4xl lg:text-6xl 2xl:text-7xl leading-normal`}
       >
@@ -45,7 +47,7 @@ const Header = ({ categoryTitle, categoryLinks }: HeaderProps) => {
             ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
