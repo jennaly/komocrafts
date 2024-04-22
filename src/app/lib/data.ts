@@ -11,7 +11,7 @@ import {
 export const getAllPhysicalProducts = async (): Promise<ProductsData> => {
   const getAllPhysicalProductsQuery = gql`
     query PhysicalProductsQuery {
-      products(first: 250, query: "title: NOT Workshop") {
+      products(first: 250, query: "-title:Workshop") {
         nodes {
           title
           handle
