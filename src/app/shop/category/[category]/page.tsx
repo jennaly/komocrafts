@@ -1,7 +1,7 @@
 import { getProductsByCategory } from "@/app/lib/data";
 import React from "react";
 import { Links } from "@/app/lib/links";
-import ContentWrapper from "./ContentWrapper";
+import ContentWrapper from "@/app/shop/category/ContentWrapper";
 
 type ShopPageProp = {
   params: {
