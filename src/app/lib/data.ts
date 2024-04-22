@@ -280,6 +280,20 @@ export const getSingleCategory = async (
           altText
         }
         descriptionHtml
+        products(first: 250, sortKey: PRICE) {
+          nodes {
+            priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+              maxVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
       }
     }
   `;

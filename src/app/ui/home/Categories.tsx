@@ -6,6 +6,7 @@ import { SingleCategoryData } from "@/app/lib/definitions";
 import clsx from "clsx";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { formatPrice } from "@/app/lib/utils";
 
 const sectionVariants = {
   offScreen: {
@@ -55,6 +56,7 @@ const CategoryTextStyle =
 
 const Coasters = ({ data }: { data: SingleCategoryData }) => {
   const { title, handle, image } = data.collection;
+  const { minVariantPrice } = data.collection.products.nodes[0].priceRange;
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
@@ -66,7 +68,10 @@ const Coasters = ({ data }: { data: SingleCategoryData }) => {
             {title}
           </h4>
 
-          <CategoryDetails className="row-start-11 lg:row-start-12 " />
+          <CategoryDetails
+            className="row-start-11 lg:row-start-12"
+            lowestPrice={minVariantPrice}
+          />
         </div>
       </Link>
     </div>
@@ -75,6 +80,7 @@ const Coasters = ({ data }: { data: SingleCategoryData }) => {
 
 const WallHangings = ({ data }: { data: SingleCategoryData }) => {
   const { title, handle, image } = data.collection;
+  const { minVariantPrice } = data.collection.products.nodes[0].priceRange;
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
@@ -84,7 +90,10 @@ const WallHangings = ({ data }: { data: SingleCategoryData }) => {
         <div className={`${CategoryTextStyle} grid-rows-6`}>
           <h4 className={`${CategoryTitleStyle} row-start-5`}>{title}</h4>
 
-          <CategoryDetails className="row-start-6" />
+          <CategoryDetails
+            className="row-start-6"
+            lowestPrice={minVariantPrice}
+          />
         </div>
       </Link>
     </div>
@@ -93,6 +102,7 @@ const WallHangings = ({ data }: { data: SingleCategoryData }) => {
 
 const Keychains = ({ data }: { data: SingleCategoryData }) => {
   const { title, handle, image } = data.collection;
+  const { minVariantPrice } = data.collection.products.nodes[0].priceRange;
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
@@ -102,7 +112,10 @@ const Keychains = ({ data }: { data: SingleCategoryData }) => {
         <div className={`${CategoryTextStyle} grid-rows-6`}>
           <h4 className={`${CategoryTitleStyle} row-start-5`}>{title}</h4>
 
-          <CategoryDetails className="row-start-6" />
+          <CategoryDetails
+            className="row-start-6"
+            lowestPrice={minVariantPrice}
+          />
         </div>
       </Link>
     </div>
@@ -111,6 +124,7 @@ const Keychains = ({ data }: { data: SingleCategoryData }) => {
 
 const Supplies = ({ data }: { data: SingleCategoryData }) => {
   const { title, handle, image } = data.collection;
+  const { minVariantPrice } = data.collection.products.nodes[0].priceRange;
   return (
     <div
       style={{ backgroundImage: `url('${image.url}')` }}
@@ -120,14 +134,24 @@ const Supplies = ({ data }: { data: SingleCategoryData }) => {
         <div className={`${CategoryTextStyle} grid-rows-6`}>
           <h4 className={`${CategoryTitleStyle} row-start-5`}>{title}</h4>
 
-          <CategoryDetails className="row-start-6" />
+          <CategoryDetails
+            className="row-start-6"
+            lowestPrice={minVariantPrice}
+          />
         </div>
       </Link>
     </div>
   );
 };
 
-const CategoryDetails = ({ className }: { className: string }) => {
+interface CategoryDetailsProps extends React.HTMLAttributes<HTMLDivElement> {
+  lowestPrice: {
+    amount: string;
+    currencyCode: string;
+  };
+}
+
+const CategoryDetails = ({ lowestPrice, className }: CategoryDetailsProps) => {
   return (
     <div
       className={clsx(
@@ -135,7 +159,9 @@ const CategoryDetails = ({ className }: { className: string }) => {
         className
       )}
     >
-      <span className="hidden lg:inline-block text-sm">From $16.00</span>
+      <span className="hidden lg:inline-block text-sm">
+        From {formatPrice(lowestPrice.amount)} {lowestPrice.currencyCode}
+      </span>
       <button className="underline underline-offset-4 text-sm">
         See products
       </button>

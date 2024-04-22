@@ -67,6 +67,11 @@ export type SingleCategoryData = {
     handle: string;
     image: ShopifyImage;
     descriptionHtml: string;
+    products: {
+      nodes: {
+        priceRange: VariantPrice;
+      }[];
+    };
   };
 };
 
