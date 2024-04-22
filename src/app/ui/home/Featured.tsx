@@ -38,7 +38,7 @@ const Featured = ({ data }: { data: ProductsByCategoryData }) => {
       whileInView="onScreen"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariants}
-      className="container bg-komo-bg mx-auto px-4 py-24 flex flex-col justify-around lg:justify-center gap-4"
+      className="container bg-komo-bg mx-auto px-4 py-24 flex flex-col justify-around gap-4"
     >
       <Copy />
       <Products data={data} />
@@ -52,7 +52,7 @@ const Copy = () => {
       variants={itemVariants}
       className="flex w-full justify-between items-center lg:row-start-3"
     >
-      <div className="w-2/3 flex flex-col gap-2">
+      <div className="w-2/3">
         <h2 className={`${gilda.className} text-2xl lg:text-3xl`}>
           Popular picks
         </h2>
