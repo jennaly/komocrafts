@@ -1,6 +1,7 @@
 import { ProductsByCategoryData } from "@/app/lib/definitions";
 import { formatCategoryTitle } from "@/app/lib/utils";
 import { gilda, monstserrat } from "@/app/ui/fonts";
+import clsx from "clsx";
 import Link from "next/link";
 
 type CategoryLink = {
@@ -27,7 +28,16 @@ const Header = ({ categoryTitle, categoryLinks }: HeaderProps) => {
             categoryLinks.map((link) => (
               <Link
                 href={`/shop/category/${link.handle}`}
-                className={`${monstserrat.className} shrink-0 w-fit px-4 py-2 rounded-full border border-komo-beaver hover:bg-komo-bone delay-200 duration-200`}
+                className={clsx(
+                  `${monstserrat.className} shrink-0 w-fit px-4 py-2 rounded-full border border-komo-beaver`,
+                  {
+                    "hover:bg-komo-bone duration-200":
+                      categoryTitle !== link.handle,
+                  },
+                  {
+                    "bg-komo-bone": categoryTitle == link.handle,
+                  }
+                )}
                 key={link.id ? link.id : link.handle}
               >
                 {link.title}
