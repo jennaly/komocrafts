@@ -25,7 +25,7 @@ const Header = ({ data, categoryLinks }: HeaderProps) => {
           {categoryLinks &&
             categoryLinks.map((link) => (
               <Link
-                href={`/shop/${link.handle}`}
+                href={`/shop/category/${link.handle}`}
                 className={`${monstserrat.className} shrink-0 w-fit px-4 py-2 rounded-full border border-komo-beaver hover:bg-komo-bone delay-200 duration-200`}
                 key={link.id ? link.id : link.handle}
               >
