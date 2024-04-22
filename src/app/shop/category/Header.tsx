@@ -1,4 +1,5 @@
 import { ProductsByCategoryData } from "@/app/lib/definitions";
+import { formatCategoryTitle } from "@/app/lib/utils";
 import { gilda, monstserrat } from "@/app/ui/fonts";
 import Link from "next/link";
 
@@ -8,16 +9,16 @@ type CategoryLink = {
   handle: string;
 };
 type HeaderProps = {
-  data: ProductsByCategoryData;
+  categoryTitle: string;
   categoryLinks: CategoryLink[];
 };
-const Header = ({ data, categoryLinks }: HeaderProps) => {
+const Header = ({ categoryTitle, categoryLinks }: HeaderProps) => {
   return (
     <section className="h-60 flex flex-col justify-around">
       <h1
         className={`${gilda.className} text-4xl lg:text-6xl 2xl:text-7xl leading-normal`}
       >
-        Shop {data.collection.title}
+        Shop {formatCategoryTitle(categoryTitle)}
       </h1>
 
       <div className="w-full flex overflow-x-scroll">

@@ -18,7 +18,7 @@ const ShopPage = async ({ params }: ShopPageProp) => {
   return (
     <div className="bg-komo-bg">
       <ContentWrapper
-        data={data}
+        categoryTitle={params.category}
         categoryLinks={categoryLinks}
         products={products}
       ></ContentWrapper>

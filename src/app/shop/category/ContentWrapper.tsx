@@ -13,19 +13,19 @@ type CategoryLink = {
 };
 
 type ProductCardProps = {
-  data: ProductsByCategoryData;
+  categoryTitle: string;
   categoryLinks: CategoryLink[];
   products: ShopifyProductData[];
 };
 
 const ContentWrapper = ({
-  data,
+  categoryTitle,
   categoryLinks,
   products,
 }: ProductCardProps) => {
   return (
     <div className="container mx-auto px-4 py-24 flex flex-col justify-around lg:justify-center gap-4">
-      <Header data={data} categoryLinks={categoryLinks} />
+      <Header categoryTitle={categoryTitle} categoryLinks={categoryLinks} />
       <ProductsWrapper products={products} />
     </div>
   );
