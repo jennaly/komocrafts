@@ -14,7 +14,7 @@ const Home = async () => {
 
   console.log(coasters.collection.image.url);
   return (
-    <main className="bg-komo-bg">
+  return (
       <Hero />
       <Featured data={featuredCollection} />
       {/* <HomepageCollage /> */}
