@@ -16,7 +16,7 @@ type CategoryLink = {
 
 type ProductCardProps = {
   categoryTitle: string;
-  categoryLinks: CategoryLink[];
+  categoryLinks?: CategoryLink[];
   products: ShopifyProductData[];
 };
 
@@ -36,12 +36,10 @@ const sectionVariants = {
     },
   },
 };
-
-const ContentWrapper = ({
-  categoryTitle,
-  categoryLinks,
-  products,
-}: ProductCardProps) => {
+interface ContentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+const ContentWrapper = ({ children }: ContentWrapperProps) => {
   return (
     <motion.div
       initial={{ y: 10, opacity: 0 }}
@@ -52,8 +50,7 @@ const ContentWrapper = ({
       }}
       className="container mx-auto px-4 py-24 flex flex-col justify-around lg:justify-center gap-4"
     >
-      <Header categoryTitle={categoryTitle} categoryLinks={categoryLinks} />
-      <ProductsWrapper products={products} />
+      {children}
     </motion.div>
   );
 };

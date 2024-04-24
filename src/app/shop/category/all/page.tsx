@@ -1,7 +1,10 @@
 import { getAllPhysicalProducts } from "@/app/lib/data";
 import React from "react";
 import { Links } from "@/app/lib/links";
-import ContentWrapper from "@/app/shop/category/ContentWrapper";
+import ContentWrapper from "@/app/ui/catalog/ContentWrapper";
+import Header from "@/app/ui/catalog/Header";
+import ProductsWrapper from "@/app/ui/catalog/ProductsWrapper";
+import ProductCard from "@/app/ui/product/ProductCard";
 
 const AllProductsPage = async () => {
   const data = await getAllPhysicalProducts();
@@ -11,11 +14,14 @@ const AllProductsPage = async () => {
 
   return (
     <div className="bg-komo-bg">
-      <ContentWrapper
-        categoryTitle={"all"}
-        categoryLinks={categoryLinks}
-        products={products}
-      ></ContentWrapper>
+      <ContentWrapper>
+        <Header categoryTitle={"all"} categoryLinks={categoryLinks} />
+        <ProductsWrapper>
+          {products.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </ProductsWrapper>
+      </ContentWrapper>
     </div>
   );
 };

@@ -1,7 +1,10 @@
 import { getProductsByCategory } from "@/app/lib/data";
 import React from "react";
 import { Links } from "@/app/lib/links";
-import ContentWrapper from "@/app/shop/category/ContentWrapper";
+import ContentWrapper from "@/app/ui/catalog/ContentWrapper";
+import Header from "@/app/ui/catalog/Header";
+import ProductsWrapper from "@/app/ui/catalog/ProductsWrapper";
+import ProductCard from "@/app/ui/product/ProductCard";
 
 type ShopPageProp = {
   params: {
@@ -17,11 +20,14 @@ const ShopPage = async ({ params }: ShopPageProp) => {
 
   return (
     <div className="bg-komo-bg">
-      <ContentWrapper
-        categoryTitle={params.category}
-        categoryLinks={categoryLinks}
-        products={products}
-      ></ContentWrapper>
+      <ContentWrapper>
+        <Header categoryTitle={params.category} categoryLinks={categoryLinks} />
+        <ProductsWrapper>
+          {products.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </ProductsWrapper>
+      </ContentWrapper>
     </div>
   );
 };

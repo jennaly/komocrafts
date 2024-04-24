@@ -1,3 +1,5 @@
+"use client";
+
 import { ProductsByCategoryData } from "@/app/lib/definitions";
 import { formatCategoryTitle } from "@/app/lib/utils";
 import { gilda, monstserrat } from "@/app/ui/fonts";
@@ -12,22 +14,22 @@ type CategoryLink = {
 };
 type HeaderProps = {
   categoryTitle: string;
-  categoryLinks: CategoryLink[];
+  categoryLinks?: CategoryLink[];
 };
 
 const Header = ({ categoryTitle, categoryLinks }: HeaderProps) => {
   return (
     <motion.section>
       <h1
-        className={`${gilda.className} text-4xl lg:text-6xl 2xl:text-7xl leading-normal`}
+        className={`${gilda.className} text-4xl lg:text-6xl 2xl:text-7xl leading-normal mb-10`}
       >
         Shop {formatCategoryTitle(categoryTitle)}
       </h1>
 
-      <div className="w-full flex overflow-x-scroll lg:overflow-visible my-10">
-        <div className="flex flex-nowrap lg:flex-wrap w-full gap-4 text-komo-beaver font-medium">
-          {categoryLinks &&
-            categoryLinks.map((link) => (
+      {categoryLinks && (
+        <div className="w-full flex overflow-x-scroll lg:overflow-visible mb-10">
+          <div className="flex flex-nowrap lg:flex-wrap w-full gap-4 text-komo-beaver font-medium">
+            {categoryLinks.map((link) => (
               <Link
                 href={`/shop/category/${link.handle}`}
                 className={clsx(
@@ -45,8 +47,9 @@ const Header = ({ categoryTitle, categoryLinks }: HeaderProps) => {
                 {link.title}
               </Link>
             ))}
+          </div>
         </div>
-      </div>
+      )}
     </motion.section>
   );
 };
